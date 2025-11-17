@@ -46,7 +46,7 @@ console.log(newAssignment,"\n");
 // Testing Function 5
 console.log("\n=== (5) Get Class List ===");
 const List = SchoolManagementModule.getClassList(1);
-console.log(`Student(s): ${List.length}`);
-console.log(List,"\n");
+console.log(`Student(s) in ${List.className} class: ${List.studentCount}`);
+console.log(List.students,"\n");
 
 console.log("=====Moudle Test End=====");

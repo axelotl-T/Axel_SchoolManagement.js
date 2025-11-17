@@ -87,9 +87,9 @@ function enrollStudent(studentId, classId){
     const newEnrollment = {
         enrollmentId: nextEnrollmentId++,
         studentId,
-        studentName: students.studentName,
+        studentName: Student.studentName,
         classId,
-        className: classes.className,
+        className: Class.className,
     };
     enrollments.push(newEnrollment);
     return newEnrollment;
@@ -104,6 +104,7 @@ function createAssignment(classId, title, dueDate) {
     const newAssignment = {
         assignmentId: nextAssignmentId++,
         classId,
+        className: Class.className,
         title,
         dueDate,
     };
@@ -124,7 +125,11 @@ function getClassList(classId){
     const List = classEnrollments.map((enrollment) => {
         return students.find((s) => s.id === enrollment.studentId);
     })
-    return List;
+    return{
+        studentCount: List.length,
+        className: Class.className,
+        students: List
+    }
 }
 
 module.exports = {
